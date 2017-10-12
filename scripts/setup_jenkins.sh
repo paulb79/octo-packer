@@ -17,6 +17,8 @@ sudo yum install jenkins -y
 # Install Git:
 
 sudo yum install git -y
+sudo yum install zip -y
+sudo yum install unzip -y
 
 # Install Java 8 and remove 7:
 

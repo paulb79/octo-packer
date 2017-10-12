@@ -35,7 +35,10 @@
             "Resource": [
                 "arn:aws:ec2:eu-west-1:105761026190:instance/*",
                 "arn:aws:ec2:eu-west-1:105761026190:volume/*",
-                "arn:aws:ec2:eu-west-1:105761026190:security-group/*"
+                "arn:aws:ec2:eu-west-1:105761026190:security-group/*",
+                "arn:aws:ec2:eu-west-2:105761026190:instance/*",
+                "arn:aws:ec2:eu-west-2:105761026190:volume/*",
+                "arn:aws:ec2:eu-west-2:105761026190:security-group/*"
             ],
             "Condition": {
                 "StringEquals": {
@@ -57,7 +60,15 @@
                 "arn:aws:ec2:eu-west-1:105761026190:volume/*",
                 "arn:aws:ec2:eu-west-1:105761026190:instance/*",
                 "arn:aws:ec2:eu-west-1:105761026190:subnet/SUBNET_ID",
-                "arn:aws:ec2:eu-west-1:105761026190:vpc/vpc-*"
+                "arn:aws:ec2:eu-west-1:105761026190:vpc/vpc-*",
+                "arn:aws:ec2:eu-west-2::image/*",
+                "arn:aws:ec2:eu-west-2:105761026190:key-pair/*",
+                "arn:aws:ec2:eu-west-2:105761026190:network-interface/*",
+                "arn:aws:ec2:eu-west-2:105761026190:security-group/*",
+                "arn:aws:ec2:eu-west-2:105761026190:volume/*",
+                "arn:aws:ec2:eu-west-2:105761026190:instance/*",
+                "arn:aws:ec2:eu-west-2:105761026190:subnet/SUBNET_ID",
+                "arn:aws:ec2:eu-west-2:105761026190:vpc/vpc-*"
             ]
         },
         {
@@ -72,7 +83,8 @@
             "Condition": {
                 "StringEquals": {
                     "ec2:vpc": [
-                        "arn:aws:ec2:eu-west-1:105761026190:vpc/VPC_ID"
+                        "arn:aws:ec2:eu-west-1:105761026190:vpc/VPC_ID",
+                        "arn:aws:ec2:eu-west-2:105761026190:vpc/VPC_ID"
                     ]
                 }
             }
