@@ -23,8 +23,18 @@
     "ssh_username": "ec2-user"
 
   }],
-  "provisioners": [{
+  "provisioners": [
+  {
+    "type": "file",
+    "source": "scripts/plugins.sh",
+    "destination": "/tmp/plugins.sh"
+  },
+  {
     "type": "shell",
     "script": "scripts/setup_jenkins.sh"
+  },
+  {
+    "type": "shell",
+    "script": "scripts/install_jenkins_plugins.sh"
   }]
 }
