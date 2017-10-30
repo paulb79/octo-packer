@@ -1,13 +1,7 @@
 {
-  "variables": {
-    "aws_access_key": "",
-    "aws_secret_key": ""
-  },
   "builders": [{
     "type": "amazon-ebs",
     "ami_name": "octo-pkt-{{timestamp}}",
-    "access_key": "{{user `aws_access_key`}}",
-    "secret_key": "{{user `aws_secret_key`}}",
     "region": "eu-west-2",
     "source_ami_filter": {
       "filters": {
