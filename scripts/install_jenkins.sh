@@ -38,3 +38,5 @@ wget https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd6
 unzip terraform_*
 sudo mv terraform /usr/bin/
 
+sudo service jenkins start
+

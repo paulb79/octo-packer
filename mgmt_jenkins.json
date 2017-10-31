@@ -1,34 +1,48 @@
 {
-  "builders": [{
-    "type": "amazon-ebs",
-    "ami_name": "octo-pkt-{{timestamp}}",
-    "region": "eu-west-2",
-    "source_ami_filter": {
-      "filters": {
-        "virtualization-type": "hvm",
-        "name": "*amzn-ami-hvm-*",
-        "root-device-type": "ebs",
-        "architecture": "x86_64"
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "ami_name": "octo-pkt-{{timestamp}}",
+      "region": "eu-west-2",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "name": "*amzn-ami-hvm-*",
+          "root-device-type": "ebs",
+          "architecture": "x86_64"
+        },
+        "owners": [
+          "137112412989"
+        ],
+        "most_recent": true
       },
-      "owners" : ["137112412989"],
-      "most_recent": true
-    },
-    "instance_type": "t2.medium",
-    "ssh_username": "ec2-user"
-
-  }],
+      "instance_type": "t2.medium",
+      "ssh_username": "ec2-user"
+    }
+  ],
   "provisioners": [
-  {
-    "type": "file",
-    "source": "scripts/plugins.sh",
-    "destination": "/tmp/plugins.sh"
-  },
-  {
-    "type": "shell",
-    "script": "scripts/setup_jenkins.sh"
-  },
-  {
-    "type": "shell",
-    "script": "scripts/install_jenkins_plugins.sh"
-  }]
+    {
+      "type": "file",
+      "source": "scripts/plugins.sh",
+      "destination": "/tmp/plugins.sh"
+    },
+    {
+      "type": "file",
+      "source": "keys/known_hosts",
+      "destination": "~/.ssh/known_hosts"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/install_jenkins.sh"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/install_jenkins_plugins.sh"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/load_seed_job.sh",
+      "pause_before": "20s"
+    }
+  ]
 }
