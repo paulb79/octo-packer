@@ -40,9 +40,18 @@
       "script": "scripts/install_jenkins_plugins.sh"
     },
     {
+      "type": "file",
+      "source": "scripts/configure_s3_plugin.groovy",
+      "destination": "~/tmp/configure_s3_plugin.groovy"
+    },
+    {
       "type": "shell",
-      "script": "scripts/load_seed_job.sh",
+      "script": "scripts/configure_s3_plugin.sh",
       "pause_before": "20s"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/load_seed_job.sh"
     }
   ]
 }
