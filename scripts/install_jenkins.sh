@@ -25,6 +25,11 @@ sudo yum install unzip -y
 sudo yum install java-1.8.0 -y
 sudo yum remove java-1.7.0-openjdk -y
 
+
+# Install SBT
+curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+sudo yum install sbt -y
+
 # Set jenkins user to not require password for sudo
 
 echo 'jenkins ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers
