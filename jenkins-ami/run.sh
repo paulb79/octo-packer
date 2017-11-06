@@ -2,4 +2,4 @@
 
 export PACKER_LOG=1
 
-packer build mgmt_jenkins.json
+packer build create_jenkins.json
