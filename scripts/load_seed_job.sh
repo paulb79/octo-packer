@@ -11,9 +11,9 @@ wget http://${JENKINS_HOST}:8080/jnlpJars/jenkins-cli.jar
 
 pass=`sudo cat /var/lib/jenkins/secrets/initialAdminPassword` && echo "jenkins.model.Jenkins.instance.securityRealm.createAccount(\"$JENKINS_USER\", \"$JENKINS_API_KEY\")" | sudo java -jar jenkins-cli.jar -auth admin:$pass -s http://${JENKINS_HOST}:8080/ groovy =
 
-git clone https://github.com/baber/jenkins-automation.git
+git clone https://git-codecommit.eu-west-2.amazonaws.com/v1/repos/jenkins-jobs
 
-cd jenkins-automation/
+cd jenkins-jobs/
 ./gradlew loadSeed
 
 cd ..

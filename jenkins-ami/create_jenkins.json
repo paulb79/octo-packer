@@ -17,7 +17,8 @@
         "most_recent": true
       },
       "instance_type": "t2.medium",
-      "ssh_username": "ec2-user"
+      "ssh_username": "ec2-user",
+      "iam_instance_profile" : "packer-dev"
     }
   ],
   "provisioners": [

@@ -14,9 +14,16 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 sudo yum install jenkins -y
 
-# Install Git:
+# Install git and set up for instance profile credentials:
 
 sudo yum install git -y
+git config --global credential.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true
+
+sudo cp ~/.gitconfig ~jenkins/
+sudo chown jenkins:jenkins ~jenkins/.gitconfig
+
+
 sudo yum install zip -y
 sudo yum install unzip -y
 
